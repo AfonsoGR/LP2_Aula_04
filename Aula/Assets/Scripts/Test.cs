@@ -37,9 +37,21 @@ public class Test : MonoBehaviour
         }
     }
 
+    private IEnumerator Clicking()
+    {
+        WaitForPress wtp = new WaitForPress();
+
+        while(true)
+        {
+            yield return wtp;
+            Debug.Log("I'm being pressed!!!!");
+        }
+    }
+
     void Start()
     {
         printHello = StartCoroutine(HelloSpam(secHello));
         StartCoroutine(CountUp(secUp, stopCount));
+        StartCoroutine(Clicking());
     }
 }
